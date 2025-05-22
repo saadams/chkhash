@@ -119,6 +119,12 @@ func main() {
 
 	hashStr := getHash(fileToHash, hashType)
 
+
+	fmt.Println("Desired hash: " + hashType + ": " + cmpValue)
+
+
+	fmt.Println("-----------------------------------------------------------------------------------------------------------")
+
 	fmt.Println("Input file hash: " + hashType + ": " + hashStr)
 
 
