@@ -8,7 +8,7 @@
 ## 🚀 Features
 
 * ✅ Quick hash checking
-* 🔐 Supports **MD5**, **SHA256**, and soon to be more
+* 🔐 Supports **MD5** and **SHA256**
 * 🧪 Compare against known hash values
 * 📁 Minimal dependencies, easy to build
 
