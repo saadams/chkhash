@@ -1,7 +1,7 @@
 
 # 🛡️ chkhash
 
-*chkhash* is a lightweight and speedy Go-based tool for checking and confirming file hashes. Made for verifying downloads or ensuring file integrity.
+*chkhash* is a lightweight and speedy Go-based tool for checking and confirming file hashes. Made for verifying downloads or ensuring file integrity. (It was largely made just for fun!)
 
 ---
 
