@@ -67,16 +67,7 @@ chkhash -filename test.exe -hashType md5 e3b0c44298fc1c149afbf4c8996fb924...
 
 ---
 
-## 💡 Pro Tips
 
-* You can pipe output to a log file for auditing:
-
-  ```bash
-   chkhash ... > hash_log.txt
-  ```
-* Integrate with CI tools for automated integrity checks.
-
----
 
 
 
