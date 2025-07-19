@@ -1,68 +1,15 @@
 package main
 
 import (
-	"crypto/md5"
-	"crypto/sha256"
 	"flag"
 	"fmt"
-	"io"
-	"log"
 	"os"
 	"strings"
+
+	"github.com/saadams/chkhash/utils"
 )
 
-func getHash(input string, hashType string) string {
 
-	if hashType == "md5" {
-		md5Hash := md5.New()
-		io.WriteString(md5Hash, input)
-
-		hashBytes := md5Hash.Sum(nil)
-
-		retString := fmt.Sprintf("%x", hashBytes)
-
-		return retString
-
-	} else {
-		sha256Hash := sha256.New()
-		io.WriteString(sha256Hash, input)
-
-		hashBytes := sha256Hash.Sum(nil)
-
-		retString := fmt.Sprintf("%x", hashBytes)
-
-		return retString
-	}
-}
-
-
-func readFileBytes(filename string) string {
-
-	file,err := os.Open(filename)
-
-	if err != nil {
-		fmt.Println("Error opening the file")
-	}
-	defer file.Close() // Ensures the file is closed when the function exits
-
-	data, err := io.ReadAll(file)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	//fmt.Println(string(data))
-	return string(data)
-}
-
-func strMatch(str1 string, str2 string) bool {
-
-
-		if str1 == str2 {
-			return true
-		} else {
-			return false
-		}
-}
 
 func containsHelpFlag(args []string) bool {
     for _, arg := range args {
@@ -115,9 +62,9 @@ func main() {
 	// 1 md5
 	// 2 sha256
 
-	fileToHash := readFileBytes(inputStr)
+	fileToHash := utils.ReadFileBytes(inputStr)
 
-	hashStr := getHash(fileToHash, hashType)
+	hashStr := utils.GetHash(fileToHash, hashType)
 
 
 	fmt.Println("Desired hash: " + hashType + ": " + cmpValue)
@@ -130,7 +77,7 @@ func main() {
 
 	fmt.Println("-----------------------------------------------------------------------------------------------------------")
 
-	if strMatch(hashStr,cmpValue) {
+	if utils.StrMatch(hashStr,cmpValue) {
 		fmt.Println("Hashes \033[32mMATCH\033[0m")
 	} else {
 		fmt.Println("Hashes \033[31mDONT MATCH\033[0m ")
